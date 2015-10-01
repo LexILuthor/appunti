@@ -1,32 +1,3 @@
-\documentclass[fontsize = 11 pt, paper=A4, oneside, index=totoc, hyperref]{article}
-
-%\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage[italian]{babel}
-
-\usepackage{amsthm}
-\usepackage{amssymb}
-\usepackage{amsmath}
-\usepackage{wasysym} %Simboletti carini, per tutti.
-%\usepackage[osf]{mathpazo}
-
-\theoremstyle{definition}
-\newtheorem{dfn}{Definizione}[section]
-
-\theoremstyle{plain}
-\newtheorem{thm}{Teorema}[section]
-\newtheorem{prp}{Proposizione}[section]
-\newtheorem{exe}{Esercizio}[section]
-
-\newcommand{\N}{\mathbb{N}}
-%\newcommand{\lhd}{\vartriangleleft}
-\newcommand{\ordine}[1]{\vartriangleleft_{\mathrm{#1}}}
-\newcommand{\assurdo}{\text{\lightning}}
-
-\begin{document}
-
-\tableofcontents
-
 \section{Relazioni d'ordine e induzione.}
 
 Consideriamo la tripla \(\left(\N, <, s \right)\) dove \(<\) è la relazione d'ordine \emph{usuale} (o naturale) e \(s \colon \N \to \N\) è la funzione \emph{successore} che associa ad \(n\) il valore \(n+1\). In particolare, \(<\) è una relazione binaria, visibile in termini insiemistici come un sottoinsieme di \(\N \times \N\): ad esempio, \((2,3) \in <\) ma \((2,1) \notin <\).
@@ -131,29 +102,6 @@ Il nostro {\bf obiettivo} è quello di dare una formulazione del principio di in
     \item{(\(PI \implies PM\))\quad} Assumiamo che \(PM\) non sia valido, mantenendo \(PI\). Siano \(S \subseteq \N\) un insieme privo di elemento minimo e \(T = \N \setminus S\). Preso \(n \in \N\), se \(\lbrace m \in \N \colon m < n\rbrace \subseteq T\) sicuramente \(n \in T\), altrimenti esso risulterebbe essere un elemento minimo per \(S\), che per definizione non ne possiede. Risulta essere \(S = \emptyset\) e si genera un assurdo, poiché \(S\) era supposto verificare \(PI\).
 \end{itemize}
   \end{proof}
-
-\subsection{Esercizi della prima settimana.}
-\begin{exe}
-  Il primo esercizio è stato svolto e riportato direttamente nella dimostrazione completa del teorema di equivalenza.
-\end{exe}
-\begin{exe}
-  L'errore nella dimostrazione di Polya è il seguente: preso un insieme di due cavalli ed effettuata la suddivisione da lui proposta, si ottengono due insieme contenenti ciascuno un cavallo distinto, dunque aventi intersezione nulla! Ciò contrasta con quanto affermato dall'autore e invalida di fatto la dimostrazione.
-
-  Un altro errore, decisamente meno matematico, potrebbe essere l'aver dimenticato che esistono cavalli con manto di più colori.
-\end{exe}
-\begin{exe}
-  Per \(n = 1\), si ha la verifica diretta, poiché \(n^2 = 1\). Assumiamo che la tesi sia stata provata per i primi \(n\) numeri positivi e consideriamo \((n+1)^2\):
-  \begin{equation}
-    (n+1)^2 = n^2 + 2n + 1 = \sum_{i=1}^n (2i - 1) + (2(n + 1) - 1) = \sum_{i = 1}^{n+1}(2i - 1).
-  \end{equation}
-\end{exe}
-\begin{exe}
-\end{exe}
-
-\begin{exe}
-Supponiamo che $A \not\subseteq B$ e $B \not\subseteq A$. Allora esistono $a \in A\setminus B$ e $b\in B\setminus A$. L'insieme $\{ a,b\} \in \mathcal{P} (A\cup B)$ perché $a,b\in A\cup B$ ma $\{ a,b\} \not\in \mathcal{P} (A)$ perché $b \not\in A$ e $\{ a,b\} \not\in \mathcal{P} (B)$ perché $a \not\in B$. Quindi $\mathcal{P} (A) \cup \mathcal{P} (B) \not = \mathcal{P} (A\cup B)$. \\
-Questa dimostrazione è per contrapposizione.
-\end{exe}
 
 \subsection{Buoni ordini e ordini totali. Catene discendenti infinite.}
 
@@ -275,10 +223,10 @@ Si riesce facilmente a verificare che \(<_{\mathrm{lex}}\) è un ordine totale s
 \end{thm}
 \begin{proof}
   Dimostriamo i due versi dell'equivalenza.
-  \begin{itemize}
+  \begin{description}
     \item[\(1) \implies 2)\)] Ragioniamo per \emph{contrapposizione}, provando equivalentemente che \(\lnot 2) \implies \lnot 1)\). Assumiamo dunque che esista in \(A\) una catena infinita discendente numerabile \((a_n)_{n \in \N}\) e sia \(B = \lbrace a_n \colon n \in \N \rbrace\). Si ha che \(\emptyset \neq B\) e inoltre \(B\) non ha minimo elemento, poiché: supposto essere \(b = \min B = a_{\bar{n}}\) per qualche \(\bar{n} \in \N\), ma \(a_{\bar{n}+1} < a_{\bar{n}}\), dunque si cadrebbe in un assurdo.
     \item[\(2) \implies 1)\)] Ragioniamo nuovamente per contrapposizione: assumiamo dunque che \((A,<)\) non sia un buon ordine, dunque esiste un sottoinsieme \(\emptyset \neq B \subseteq A\) tale che \(B\) non abbia elemento \(<\)-minimo. Vogliamo usare \(B\) per definire una catena infinita discendente (numerabile) in \(A\), ottenendo quindi \(\lnot 2)\). Sia \(a_0 \in B\): poiché \(B\) non ha minimo, la collezione \(\lbrace b \in B \colon b < a_0\rbrace\) è non vuota; definisco \(A_1 = \lbrace b \in B \colon b < a_0\rbrace\). Sia \(a_1 \in A_1\). Allora \(a_1 < a_0\): procediamo in questo modo. Formalmente, abbiamo fissato \(a_0 \in B\), supponendo di aver definito \(a_n < a_{n-1} < \dotsb < a_1 < a_0\) elementi di \(B\), scegliamo \(a_{n+1}\) in \(\lbrace b \in B \colon b < a_n\rbrace\) che è non vuoto poiché stiamo lavorando sotto l'ipotesi che \(B\) non abbia elemento minimo. Otteniamo così una catena infinita discendente.
-  \end{itemize}
+  \end{description}
 \end{proof}
 Alla luce di questo teorema, possiamo dire che \({}^\N\N\) munito dell'ordine lessicografico {\bf non} è un buon ordine. Per esempio,
 \[
@@ -321,7 +269,7 @@ Un importante aspetto della definizione di elemento minimale è che, mentre si p
 
 \begin{exe}
 {\bf Domanda}: \((\mathcal{P}(\N), \subset)\) è ben fondato?
-{\bf Ragionaci.}
+{\bf Ragionaci.} Sì, è ben fondato.
 \end{exe}
 
 \begin{thm}[Caratterizzazione di ordini ben fondati]
@@ -344,163 +292,102 @@ Un importante aspetto della definizione di elemento minimale è che, mentre si p
 \end{proof}
 La proprietà espressa in \eqref{fond1} dètta un principio di induzione sugli insiemi parzialmenti ordinati e ben fondati. A riguardo della dimostrazione, il "principio attivo" utilizzato è lo stesso utilizzato nel caso della caratterizzazione degli insiemi ben ordinati!
 
-\section{Sui tipi di dimostrazione.}
 
-Nel voler dimostrare un asserto, è possibile procedere logicamente per vie tra loro differenti, applicando un singolo argomento o scomponendo il problema principale in sottosezioni dimostrate poi con l'applicazione di metodi diversi.
-Se si vuole provare che \(A \implies B\), dove \(A,B\) sono due predicati e:
-\begin{enumerate}
-  \item si assume \(A\) per provare \(B\) si ottiene una dimostrazione \emph{diretta}.
-  \item si prova invece \(\lnot B \implies \lnot A\), si ha una dimostrazione per \emph{contrapposizione}. Questo procedura produce una dimostrazione valida, grazie al fatto che i valori di verità assunti da \(A \implies B\) e \(\lnot B \implies \lnot A\) sono gli stessi, a parità di assunzioni iniziali. Si dice anche che dimostrazioni dirette e per contrapposizione sono "uguali, \emph{a meno del significato}".
-\end{enumerate}
-\begin{center}
-\begin{tabular}{c|c|c||c|c|c}
-  \(A\) & \(B\) & \(A \implies B\) & \(\lnot B\) & \(\lnot A\) & \(\lnot B \implies \lnot A\) \\ \hline
-  T & T & T & F & F & T \\
-  T & F & F & T & F & F \\
-  F & T & T & F & T & T \\
-  F & F & T & T & T & T
-\end{tabular}
-\end{center}
+\subsection{Ricorsione sui numeri naturali.}
 
-\subsection{Dimostrazioni per casi. Costruttività.}
+Nonostante sia naturale pensare che la scrittura
+\[
+  \begin{cases}
+    0! = 1 \\ s(n)! = s(n)n!
+  \end{cases}
+\]
+definisca sui numeri naturali la funzione fattoriale, con quanto visto finora non abbiamo nessuna certezza sul fatto che essa sia effettivamente una funzione e se sia univocamente determinata. Perché, ad esempio,
+\[
+  \begin{cases}
+    0\escrov = 1 \\ (n+1)\escrov = s(n)\cdot(n+2)\escrov
+  \end{cases}
+\]
+intuitivamente non definisce una funzione? Proviamo a calcolare qualche valore:
+\[
+2\escrov = 2\cdot3\escrov,\quad 3\escrov = 3\cdot4\escrov,\dots
+\]
+E perché ci sentiamo di dire che è possibile definire la funzione nel seguente modo?
+\[
+  \begin{cases}
+    n + 0 = n \\ n + s(m) = s(n + m)
+  \end{cases}
+\]
+Cosa ci garantisce che tutte queste scritture definiscano funzioni?
 
-Una dimostrazione \emph{per casi} si occupa di verificare la validità della tesi esaurendo le possibili condizioni di partenza. Vediamo ad esempio, come dimostrare che:
-
-\begin{thm}
-  Esistono \(a,b\) irrazionali tali che \(a^b \in \mathbb{Q}\).
+\begin{thm}[Ricorsione sui naturali]
+  Siano \(k \in \N\) e \(f \colon \N \times \N \to \N\). Allora, esiste ed è unica la funzione \(g \colon \N \to \N\) tale che
+  \begin{equation}
+    \begin{cases}
+      g(0) = k \\ g(s(n)) = f(n, g(n)).
+    \end{cases} \label{eqn:ric1}
+  \end{equation}
 \end{thm}
 \begin{proof}
-  Siano \(a' = b' = \sqrt{2}\) e distinguiamo due casi:
+  Siano \(g_1, g_2 \colon \N \to \N\) funzioni che soddisfano a \eqref{eqn:ric1}. Proviamo che \(g_1 = g_2\), ovvero che \(A = \lbrace n \in \N \colon g_1(n) = g_2(n) \rbrace\) coincida con \(\N\). Verifichiamolo per induzione.
   \begin{enumerate}
-    \item se \((a')^{b'} \in \mathbb{Q}\) allora prendiamo \(a = b = \sqrt{2}\)
-    \item altrimenti, prendiamo \(a = \sqrt{2}^{\sqrt{2}}\) e \(b = \sqrt{2}\), in tal caso si ha
+    \item \(0 \in A\), poiché \(g_1(0) = k = g_2(0)\);
+    \item Assumiamo che \(n \in A\) e proviamo che ciò implica che \(s(n) \in A\). Intanto, \(n \in A \iff g_1(n) = g_2(n)\). Con le assunzioni fatte, si ottiene che
     \[
-    \left(\sqrt{2}^{\sqrt{2}}\right)^{\sqrt{2}} = \sqrt{2}^2 = 2.
+    g_1(s(n)) = f(n,g_1(n)) = f(n,g_2(n)) = g_2(s(n))
     \]
+    ossia \(n \in A \implies s(n) \in A\).
+  \end{enumerate}
+  Possiamo concludere che \(A = \N\), da cui l'unicità di \(g\) soddisfacente a \eqref{eqn:ric1}. Esiste questa funzione?
+
+  Consideriamo una funzione insiemisticamente (pensiamo all'insieme delle coppie ordinate) e sia \(n \in \N\). Diciamo che una funzione \(h \colon \lbrace 0,\dots,n \rbrace \to \N\) è una \emph{\(n\)-approssimazione} se
+  \begin{equation}
+    \begin{cases}
+      h(0) = k \\ h(s(m)) = f(m, h(m)) & \forall m < n
+    \end{cases}
+  \end{equation}
+  Vogliamo provare che per ogni \(n \in \N\) esiste una \(n\)-approssimazione e inoltre che essa è unica. La sua unicità si prova allo stesso modo di quella di \(g\). Per l'esistenza, consideriamo \(B = \lbrace n \in \N \colon \text{esiste una n-approssimazione} \rbrace\). Vogliamo provare che \(B = \N\). Procediamo nuovamente per induzione.
+  \begin{enumerate}
+    \item Esiste una \(0\)-approssimazione? Sia \(g_0 \colon \lbrace 0 \rbrace \to \N\), con \(g_0(0) = k\). Insiemisticamente, \(g_0(0) = \lbrace (0,k) \rbrace\).
+    \item Assumiamo che esista una \(n\)-approssimazione \(g_n\) e proviamo l'esistenza di \(g_{s(n)}\). Se \(g_{s(n)}\) esiste, come deve essere strutturata rispetto a \(g_n\)? Osserviamo che \(\restr{g_{s(n)}}{\lbrace 0,\dots,n}\) è una \(n\)-approssimazione e per unicità di una \(n\)-approssimazione, essa è uguale a \(g_n\). Allora, possiamo dire che
+    \[
+    g_{s(n)} = g_n \cup \lbrace (s(n), f(n, g_n(n))) \rbrace
+    \]
+    è una \(s(n)\)-approssimazione. \emph{Operativamente}, possiamo definire
+    \[g_{s(n)}(m) =
+    \begin{cases}
+      g_n(m) & m \le n \\ f(n,g_n(n)) & m = s(n)
+    \end{cases}
+    \]
+    Allora, per ogni \(n \in \N\) esiste ed è unica un \(n\)-approssimazione. Quindi,
+    \begin{equation}
+    g_0 \subset g_1 \subset \dotsb \subset g_n \subset g_{s(n)} \subset \dotsb \label{eqn:ric2}
+  \end{equation}
+    Sia \(g = \bigcup_{n \in \N} g_n\). Per \eqref{eqn:ric2}, \(g\) è una funzione; \(\dom g = \bigcup_{n \in \N} \dom g_n = \N\) e \(g\) soddisfa \eqref{eqn:ric1}
   \end{enumerate}
 \end{proof}
 
-Questa dimostrazione, pur dando informazioni rilevanti circa l'esistenza dei numeri cercati, non fornisce indicazioni utili quali l'entità di tali numeri: infatti, viene detto che una delle coppie \((\sqrt{2},\sqrt{2})\) o \((\sqrt{2}^{\sqrt{2}},\sqrt{2})\) potrebbe essere quella cercata, ma non quale delle due è quella che verifica il teorema. Una dimostrazione di questo tipo viene detta \emph{non costruttiva}. Un risultato complementare è stato sviluppato da Lindemann, il quale ha provato:
-\begin{thm}[Lindemann]
-  Siano \(a,b\) irrazionali con \(a\) algebrico. Allora, \(a^b\) è irrazionale.
-\end{thm}
-Sfruttando questa nuova informazione, si può affermare che la coppia soddisfacente la richiesta del teorema è \(\sqrt{2}^{\sqrt{2}}, \sqrt{2}\). Dunque, combinando quanto da noi dimostrato con quanto dimostrato da Lindemann, si può ottenere una dimostrazione \emph{costruttiva}.
+\paragraph{Alcuni esempi.} Volendo calcolare \(g(37)\), è sufficiente considerare una \(n\)-approssimazione abbastanza grande da contenere il valore di \(g(37)\); la più piccola a contenerlo è \(g_{37}\) e \(g(37) = g_{37}(37) = g_k(37)\) per ogni \(k > 37\).
 
-\subsection{Dimostrazioni per assurdo.}
-Se si vuole verificare la validità di un predicato \(A\) e si prova invece che, assumendo la sua negazione \(\lnot A\), si giunge ad una contraddizione, si ottiene un tipo di dimostrazione detto \emph{per assurdo}. Da notare il fatto che dimostrazioni per assurdo e per contraddizione {\bf non} sono la stessa cosa: una assume la negazione della tesi per arrivare a dimostrare la negazione delle ipotesi, mentre una parte dalla negazione della tesi per arrivare a trovare una contraddizione nel ragionamento logico!
+Vogliamo usare il teorema di ricorsione sui naturali per provare l'esistenza e l'unicità di una funzione che soddisfi le condizioni
+\begin{equation}
+  \begin{cases}
+    0! = 1 \\ s(n)! = s(n)n!
+  \end{cases} \label{eqn:ric3}
+\end{equation}
+Vogliamo quindi trovare \(k \in \N\) e \(f \colon \N \times \N \to \N\) tali che, applicando a questi il teorema di ricorsione, la funzione \(g\) di cui il teorema afferma esistenza ed unicità sia tale da soddisfare \eqref{eqn:ric3}. Osserviamo subito che dev'essere \(k = 1\). Inoltre, possiamo prendere \(f((h,k)) = s(h)\cdot k\). Allora la \(g\) di cui sopra è unica tale che
+\[
+\begin{cases}
+  g(0) = 1 \\ g(s(n)) = f(n, g(n)) = s(n)\cdot g(n)
+\end{cases}
+\]
+che si può notare essere la definizione di \emph{fattoriale}.
+{\bf Esercizio:} Trova \(k\), \(f\) tali da definire con il teorema di ricorsione la funziona che somma 2 ad un numero naturale.
 
-Possibilmente, una qualsiasi dimostrazione può essere ridotta ad una dimostrazione per assurdo.
-
-\paragraph{\emph{Apparentemente} per assurdo.}[p.33 Van Dalen] Una dimostrazione catalogata tra quelle facenti utilizzo di un argomento per assurdo è quella dell'irrazionalità di \(\sqrt{2}\), in cui la proposizione afferma che \(\sqrt{2} \notin \mathbb{Q}\). Nel dimostrare questo fatto, si parte assumendo che \(\sqrt{2} \in \mathbb{Q}\) e si giunge poi alla contraddizione grazie all'unicità essenziale della fattorizzazioni in primi dei numeri naturali; tutto farebbe pensare ad un'applicazione vera e propria della riduzione ad assurdo. Tuttavia, va posta seria attenzione poiché in realtà questa {\bf non} è una dimostrazione per assurdo.
-
-Sia \(\phi \overset{\text{def}}{=} \left(\sqrt{2} \in \mathbb{Q}\right)\). La proposizione da dimostrare è \(\lnot \phi\). Quello che viene fatto nella dimostrazione sopra descritta è provare \(\phi \implies \assurdo \approx \lnot \phi\), mentre nell'operare per assurdo si avrebbe \(\left(\lnot(\lnot \phi) \implies \assurdo\right) \implies \lnot \phi\). Mentre in questo caso le due dimostrazioni parrebbero essere equivalenti, in generale non è garantità la validità di \(\lnot\lnot\phi \iff \phi\)
-- per esempio, gli intuizionisti rifiutano questa equivalenza. Se l'enunciato della proposizione fosse stato \(\sqrt{2} \in \mathbb{I}\), ecco che la dimostrazione sarebbe stata effettivamente per assurdo. Questo sottolinea l'importanza della scelta dell'assunto che si pone essere come proprietà primitiva.
-
-\section{28 Settembre 2015}
-
-\begin{exe}
-  Spiegare perché la definizione di fattoriale definisce una funzione.
-\end{exe}
-
-\section{Esercizi della seconda settimana.}
-
-\begin{exe}
-  Sia \(A\) un insieme. In quali casi la relazione di inclusione stretta \(\subset\) è un ordine totale sull'insieme \(\mathcal{P}(A)\) delle parti di \(A\)?
-\end{exe}
-\begin{proof}
-  {\bf Idea:} Potrebbe essere nel caso in cui \(A\) sia una \(\sigma\)-algebra?
-\end{proof}
-
-\begin{exe}
-  \label{exe:1}
-  Sia \(\lhd\) la relazione su \(\N\) così definita: \(m \lhd n\) se e solo se (\(m\) e \(n\) sono entrambi pari o entrambi dispari e \(m < n\)) oppure (\(m\) è pari e \(n\) è dispari).
-  \begin{enumerate}
-    \item Discutere se \(\lhd\) è un buon ordine su \(\N\);
-    \item Trovare una proprietà relativa alla relazione d'ordine che non fa riferimento a specifici elementi e che sia vera rispetto a \(<\) ma non rispetto a \(\lhd\).
-  \end{enumerate}
-\end{exe}
-\begin{proof}
-  Una proprietà generica, vera per \(<\) ma non per \(\lhd\) è che
-  \[
-  \forall n \in \N.\quad n < n+1.
-  \]
-  Verifichiamo che \(\lhd\) soddisfi le proprietà di buon ordine. % Avendo già discusso in precedenza una dimostrazione basata sulle condizioni essenziali per essere un buon ordine, sfruttiamo in questa dimostrazione un teorema di equivalenza. Infatti, se si considera la successione
-\end{proof}
-
-\begin{exe}
-  Sia \((A,<)\) un insieme totalmente ordinato e sia \(a \in A\). Un elemento \(b \in A\) è detto \emph{predecessore immediato} di \(a\) se:
-  \begin{enumerate}
-    \item \(b < a\);
-    \item non esiste \(c \in A\) tale che \(b < c < a\).
-  \end{enumerate}
-  Cosa fare?
-  \begin{enumerate}
-    \item Provare che, se \(a\) ha un predecessore immediato, esso è unico;
-    \item Dare la definizione di \emph{successore immediato} di \(a\);
-    \item Provare che, se \(a\) ha un successore immediato, esso è unico.
-  \end{enumerate}
-  Dare un esempio di ciascuno dei seguenti:
-  \begin{enumerate}
-    \item un insieme totalmente ordinato in cui ogni elemento ha sia predecessore che successore immediato;
-    \item un insieme infinito totalmente ordinato in cui nessun elemento ha predecessore o successore immediato.
-  \end{enumerate}
-\end{exe}
-\begin{proof}
-  Siano \(b,b'\) due predecessori immediati di \(a\): allora, \(b < a\) e \(b' < a\), inoltre non esiste \(c \in A\) tale che \(b < c < a\) o \(b' < c < a\). Ciò implica che non valendo nè \(b < b'\) nè \(b' < b\), per totalità di \(<\) su \(A\) vale \(b = b'\), dunque il predecessore immediato è unico.
-
-  Possiamo definire il \emph{successore immediato} di \(a\) il numero \(b \in A\) tale che:
-  \begin{enumerate}
-    \item \(a < b\);
-    \item non esiste \(c \in A\) tale che \(a < c < b\).
-  \end{enumerate}
-  Similmente a quanto fatto per il predecessore immediato, si dimostra che il successore immediato di un elemento è unico.
-
-  Un insieme totalmente ordinato in cui ogni elemento ha sia predecessore che successore immediato è \((\mathbb{Z},<)\). Un insieme infinito totalmente ordinato in cui nessun elemento ha predecessore o successore immediato è \((\mathbb{R},<)\).
-\end{proof}
-
-\begin{exe}
-  Sia \((A,<)\) un ordine parziale e sia \(B \subseteq A\). Un elemento \(b \in B\) è \emph{minimale} in \(B\) se non esiste nessun \(c \in B\) tale che \(c < b\).
-  \begin{enumerate}
-    \item Dare un esempio di insieme parzialmente ordinato che ha almeno due elementi minimali;
-    \item Provare che se \((A,<)\) è un ordine totale e se \(a,b\) sono elementi minimali in \(B \subseteq A\), allora \(a = b = \min(B)\).
-  \end{enumerate}
-\end{exe}
-\begin{proof}
-  Un esempio di insieme parzialmente ordinato avente almeno due elementi minimali è dato da \(\lbrace a_1,\dots,a_n \rbrace\) dotato dell'ordine \(\lhd = \lbrace (a_1,a_i) \colon 2 \le i \le n \rbrace\). Se \(a\) e \(b\) sono minimali in \(B \subseteq A\) totalmente ordinato, poiché nè \(a < b\) nè \(b < a\) possono valere, per tricotomia dell'ordine totale si ha \(a = b\); inoltre, non esistendo elemento \(c \in B\) tale che \(c < a\) o \(c < b\), risulta essere \(a = b = \min(B)\).
-\end{proof}
-
-\begin{exe}
-  Siano \((A,<)\)e \((B,\lhd)\) insiemi parzialmente ordinati. Una funzione \(f \colon A \to B\) è un \emph{isomorfismo d'ordine} se:
-  \begin{enumerate}
-    \item \(f\) è biiettiva;
-    \item per ogni \(x,y \in A\), \(x < y \iff f(x) \lhd f(y)\).
-  \end{enumerate}
-  Si dice che \((A,<) \simeq (B, \lhd)\) ovvero che essi sono isomorfi se esiste un isomorfismo d'ordine \(f \colon A \to B\).
-  \begin{enumerate}
-    \item Sia \(a \in \N\) un insieme e sia \(\N_a = \N \cup \lbrace a \rbrace\). Estendiamo l'ordine standard \(<\) su \(\N\) a \(\N_a\) ponendo \(n < a\) per ogni \(n \in \N\). Stabilire se \((\N_a,<)\) è un insieme ben ordinato e se \((\N,<) \simeq (\N_a,<)\);
-    \item Con riferimento all'esercizio \ref{exe:1}, stabilire se \((\N,<)\simeq(\N,\lhd)\).
-  \end{enumerate}
-\end{exe}
-\begin{proof}
-  La relazione d'ordine definita su \(N_a\) è antiriflessiva e transitiva, lo si verifica facilmente. Vediamo che essa stabilisca un buon ordine: preso un sottoinsieme di \(\N_a\) non contenente \(a\), il buon ordine è indotto dal buon ordinamento su \(\N\); se invece nell'insieme è contenuto \(a\), distinguiamo due casi (anche se non ce ne sarebbe bisogno):
-  \begin{enumerate}
-    \item Se \(B = \lbrace a \rbrace\), non vi è alcun elemento \(b \in B\) tale che \(b < a\), dunque \(a\) è \(<\)-minimo elemento;
-    \item Se \(B\) contiene sia \(a\) che elementi di \(\N\), allora l'elemento \(<\)-minimo esiste ed è \(\min \lbrace n \in B \colon n \in \N \rbrace\).
-  \end{enumerate}
-  Non possiamo dire che \((\N,<)\simeq(\N_a,<)\) poiché non esiste elemento \(\bar{n} \in \N\) tale che per ogni \(n \in \N\), \(n < \bar{n}\). Dunque, i due ordini non sono isomorfi, \((\N,<) \not\simeq(\N_a,<)\).
-  {\bf Idea:} \((\N,<) \not\simeq (\N, \lhd)\).
-\end{proof}
-
-\begin{exe}
-  Dimostrare o refutare (producendo un controesempio) ciascuna delle affermazioni seguenti:
-  \begin{enumerate}
-    \item se \((A,<)\) insieme ben ordinato e \(a \in A\) non è il minimo di \(A\), allora \(a\) ha predecessore immediato;
-    \item se \((A,<)\) è un insieme bene ordinato e \(a \in A\) non è il massimo di \(A\), allora \(a\) ha successore immediato.
-  \end{enumerate}
-\end{exe}
-\begin{proof}
-  La prima affermazione è...vera?! Sia \(\bar{a} = \min A\), esistente per buon ordine dell'insieme. Sia \(B = \lbrace b \in A \colon \bar{a} < b \rbrace = A \setminus \lbrace \bar{a} \rbrace\): per buon ordine, esso conterrà un elemento \(a\) che è \(<\)-minimo. Dunque, si avrà che \(\bar{a} < a\) e che non esiste nessun elemento \(c \in A\) tale che \(\bar{a} < c < a\): possiamo dire che \(\bar{a}\) è predecessore immediato di \(a\). Agendo induttivamente come descritto, si trova che ogni elemento non-minimo di \(A\) ammette predecessore immediato.
-  La seconda affermazione è vera: infatti, preso \(B = A \setminus \lbrace b \in A \colon b < a\rbrace \cup \lbrace a \rbrace\), per buon ordine di \(A\) esso ammette un elemento \(<\)-minimo, che sarà dunque il successore immediato di \(a\).
-\end{proof}
-
-\end{document}
+Potremmo anche definire funzioni che si appoggi su più casi base, esempio:
+\begin{equation}
+  \begin{cases}
+    F_0 = 0 \\ F_1 = 1 \\ F_{n+2} = F_n + F_{n+1}
+  \end{cases}
+\end{equation}
+Utilizzando una versione adattata del teorema di ricorsione sui naturali, è possibile garantire esistenza ed unicità estendendo a piacere il numero di condizioni iniziali.
+Cosa possiamo provare sui numeri di Fibonacci? {\bf Esercizio}, posso dire che \(F_{3n}\) è pari per ogni \(n \in \N\)? Prova a definire induttivamente la sommatoria e la produttoria dei primi \(n\) numeri naturali.
